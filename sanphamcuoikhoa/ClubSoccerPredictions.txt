@@ -1,0 +1,6 @@
+	Club Soccer Predictions
+
+-những đội có điểm cao hon  50 điểm
+-5 đội có số điểm cao nhất
+-đội nào có số điểm thấp nhất
+-đội nào ó co số điểm cao nhất

@@ -1,0 +1,100 @@
+--create table Customers(
+  --CustomerID int primary key,
+  --CustomerName varchar(50),
+  --Address varchar(50),
+  --City varchar(50),
+  --Country varchar(50)
+--)
+
+--create table Orders(
+    --OrderId int primary key,
+    --CustomerID int,
+    --OrderDate date,
+    --foreign key (CustomerID) references Customers
+--)
+
+--create table Products(
+    --ProductID int primary key,
+    --ProductName varchar(50),
+    --Category varchar(50),
+    --Unit varchar(50),
+    --Price decimal
+--)
+
+--create table OrderDetails(
+ --OrderDetailID int primary key,
+ --OrderID int,
+ --ProductID int,
+ --Quantity int,
+ --foreign key (OrderID) references Orders,
+ --foreign key (ProductID) references Products
+--)
+
+--insert into Customers(CustomerID, CustomerName, Address, City, Country)
+--values
+    --(1,"Alfreds Futterkiste","Obere Str. 57","Berlin","Germany"),
+    --(2,"Ana Trujillo Emparedados","Avda. de la Constitución 2222","México D.F.","Mexico"),
+    --(3,"Antonio Moreno Taquería","Mataderos 2312","México D.F.","Mexico"),
+    --(4,"Around the Horn","120 Hanover Sq.","London","UK"),
+    --(5,"Berglunds snabbköp","Berguvsvägen 8","Luleå","Sweden")
+    
+--insert into Products(ProductID, ProductName, Category, Unit, Price)
+--values
+    --(1,"Chais","Beverages","10 boxes x 20 bags",18),
+    --(2,"Chang","Beverages","24 - 12 oz bottles",19),
+    --(3,"Aniseed Syrup","Condiments","12 - 550 ml bottles",10),
+    --(4,"Chef Anton's Cajun Seasoning","Condiments","48 - 6 oz jars",22),
+    --(5,"Chef Anton's Gumbo Mix","Condiments","36 boxes",21.35)
+    
+--insert into Orders(OrderID, CustomerID, OrderDate)
+--values
+    --(10248,2,"7/4/1996"),
+    --(10249,3,"7/5/1996"),
+    --(10250,3,"7/8/1996"),
+    --(10251,5,"7/8/1996"),
+    --(10252,1,"7/9/1996")
+    
+--insert into OrderDetails(OrderDetailID, OrderID, ProductID, Quantity)
+--values
+    --(1,10248,1,12),
+    --(2,10248,3,10),
+    --(3,10248,2,5),
+    --(4,10249,4,9),
+    --(5,10249,1,40)
+
+----1----
+--Select * from Customers
+--Where Country = "Mexico"
+
+----2----
+--Select Distinct Country
+--From Customers
+
+----3----
+--Select * from Customers
+--Where Country in ("Mexico", "Canada", "Hoa Kỳ")
+
+----5----
+--Select ProductName as Name, Unit from Products
+
+----6----
+--Select * from Products
+--Order by Price asc
+
+----7----
+--Select * from Products
+--Where Category = "Beverages"
+--Order by Price desc
+--limit 5
+
+----8----
+--Select * from Products
+--Where Price between 10 and 25 and Unit like "%boxes%"
+
+----9---- ?
+--Select * from Orders
+--WHERE OrderDate BETWEEN '01/08/1996' AND '31/08/1996';
+
+----10----
+Select ProductID, Quantity from OrderDetails
+Where Quantity > 10
